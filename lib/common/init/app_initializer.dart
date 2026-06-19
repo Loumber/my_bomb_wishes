@@ -12,7 +12,11 @@ class AppInitializer {
     await dotenv.load(fileName: ".env");
 
     try {
-      await Supabase.initialize(url: dotenv.env['SUPABASE_URL']!, anonKey: dotenv.env['SUPABASE_ANON_KEY']!);
+      await Supabase.initialize(
+        url: 'https://iltowjmutggwyoftlrmz.supabase.co',
+        anonKey:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsdG93am11dGdnd3lvZnRscm16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MTQwMTIsImV4cCI6MjA4MzE5MDAxMn0.W0WX_feHyyVRM1SEjdnQ4QJ1EsHoIcj1Cr3ZJwOOj08',
+      );
     } on Object {
       AppLogger.error('Supabase initialization failed');
     }
